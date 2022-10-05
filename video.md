@@ -33,7 +33,7 @@ services:
 ```shell
 # 本地简单演示
 # 推流
-ffmpeg -re -i demo.flv -c:a copy -c:v copy -f flv rtmp://192.168.1.30:8100/live/test110
+ffmpeg -re -i tmp.mp4 -c:a copy -c:v copy -f flv rtmp://192.168.1.30:8100/live/test110
 # 拉流
 ffplay rtmp://192.168.1.30:8100/live/test110
 ```

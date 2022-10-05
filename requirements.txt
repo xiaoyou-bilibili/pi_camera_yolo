@@ -1,0 +1,6 @@
+flask~=2.2.2
+opencv-python~=4.6.0.66
+torch~=1.9.0+cu111
+loguru~=0.6.0
+yolox~=0.3.0
+websockets~=10.3

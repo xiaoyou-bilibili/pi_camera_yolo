@@ -11,4 +11,8 @@
 
 ## 效果展示
 ## 项目运行
+```shell
+pip install flask-socketio
+
+```
 ## 相关问题
