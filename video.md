@@ -33,9 +33,9 @@ services:
 ```shell
 # 本地简单演示
 # 推流
-ffmpeg -re -i tmp.mp4 -c:a copy -c:v copy -f flv rtmp://192.168.1.30:8100/live/test110
+ffmpeg -re -i tmp.mp4 -c:a copy -c:v copy -f flv rtmp://192.168.1.30:8100/live/origin
 # 拉流
-ffplay rtmp://192.168.1.30:8100/live/test110
+ffplay rtmp://192.168.1.30:8100/live/origin
 ```
 
 ## 树莓系统安装
@@ -89,11 +89,16 @@ camera_auto_detect=1
 然后我们推一下流
 ```shell
 # 树莓派端执行
-libcamera-vid -t 0 --mode 800:600 -o - | ffmpeg -i - -s 800x600 -f flv -b 800k -r 30 rtmp://192.168.1.30:8100/live/test110
+libcamera-vid -t 0 --mode 800:600 -o - | ffmpeg -i - -s 800x600 -f flv -b 800k -r 20 rtmp://192.168.1.30:8100/live/origin
 # 电脑端执行
-ffplay rtmp://192.168.1.30:8100/live/test110
+ffplay rtmp://192.168.1.30:8100/live/origin
 ```
-这个虽然能用，但是延迟实在太高了，高达10s多，如果有更好的方法欢迎提交issue
+```shell
+# 如果想给视频旋转180度，可以给ffmpeg加上这样参数
+-vf "transpose=2,transpose=2"
+```
+
+这个虽然能用，但是延迟实在太高了，高达10s多，如果有更好的方法欢迎提交pr
 
 
 
